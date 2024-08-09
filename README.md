@@ -1,4 +1,4 @@
-# Exercícios de Programação 2 em JAVA - ADS101
+# Exercícios de Programação 2 em C++ - ADS101
 
 ![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
