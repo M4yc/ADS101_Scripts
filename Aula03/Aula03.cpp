@@ -19,18 +19,30 @@ class Pessoa{
     private:
         /* data */
     public:
-        int Id;
+        int Id; 
         string Nome;
         int Idade;
 };
 
+class Pecas{
+    public:
+        int Id; 
+        string Nome;
+        string Modelos;
+};
+
 int main(){
     Pessoa pessoa;
+    Pessoa amigo;
+    Pecas pecas;
 
     pessoa.Id = 1;
     pessoa.Nome = "Jóse";
     pessoa.Idade = 20;
+    amigo.Nome = "Luiz";
 
+
+    cout << RED << "Nome: " << amigo.Nome << RESET << endl;
     cout << RED << "Id: " << pessoa.Id << RESET << endl;
     cout << BLUE << "Nome: " << pessoa.Nome << RESET << endl;
     cout << GREEN << "Idade: " << pessoa.Idade << RESET << endl;
