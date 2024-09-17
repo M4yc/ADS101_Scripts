@@ -18,7 +18,7 @@ int main(){
     int n1 = 0;
     int n2 = 0;
     int n3 = 0;
-
+    
     cout << "Informe o n1: ";
     cin >> n1;
 
