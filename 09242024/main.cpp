@@ -112,11 +112,91 @@ public:
     }
 };
 
+class Professor : public Pessoa {
+    protected:
+    string Curso;
+
+public:
+    // Método para cadastrar as informações do aluno
+    void CadastrarInfo() {
+        
+        // Chama o método da classe base para preencher ID, Nome, CPF
+        Pessoa::CadastrarInfo();
+        cout << "===========================" << endl;
+        // Cadastra dados específicos de Aluno
+        cout << "Digite o curso do Professor: ";
+        cin.ignore();  // Limpar o buffer
+        getline(cin, Curso);
+        
+    }
+
+    // Método para exibir as informações do aluno
+    void ExibirInfo() const override {
+        
+        Pessoa::ExibirInfo();  // Exibe dados de Pessoa
+        cout << "===========================" << endl;
+        cout << "Curso: " << Curso << endl;
+    }
+
+};
+
+class DisciplinaProfessor : public Professor {
+private:
+    string NomeDisciplina1, NomeDisciplina2, NomeDisciplina3;
+    int CargaHora1, CargaHora2, CargaHora3;
+
+public:
+    // Método para inserir notas da disciplina
+    void InserirCarga() {
+        cout << "===========================" << endl;
+        cout << "Informe o nome da Disciplina 1: ";
+        cin.ignore();  // Limpar o buffer
+        getline(cin, NomeDisciplina1);
+
+        cout << "Informe a carga horaria da disciplina 1: ";
+        cin >> CargaHora1;
+
+        cout << "Informe o nome da Disciplina 2: ";
+        cin.ignore();  // Limpar o buffer
+        getline(cin, NomeDisciplina2);
+
+        cout << "Informe a carga horaria da disciplina 2: ";
+        cin >> CargaHora2;
+
+        cout << "Informe o nome da Disciplina 3: ";
+        cin.ignore();  // Limpar o buffer
+        getline(cin, NomeDisciplina3);
+
+        cout << "Informe a carga horaria da disciplina 3: ";
+        cin >> CargaHora3;
+    }
+
+    // Método para calcular a média das notas
+    float SomaCarga() const {
+        return (CargaHora1 + CargaHora2 + CargaHora3);
+    }
+
+    // Método para exibir as informações da disciplina
+    void ExibirInfo() const override {
+        Professor::ExibirInfo();  // Chama o método da classe Aluno para exibir dados de Aluno
+        cout << "Disciplina: " << NomeDisciplina1 << endl;
+        cout << "Carga horaria: " << CargaHora1 << endl;
+        cout << "Disciplina: " << NomeDisciplina2 << endl;
+        cout << "Carga horaria: " << CargaHora2 << endl;
+        cout << "Disciplina: " << NomeDisciplina3 << endl;
+        cout << "Carga horaria: " << CargaHora3 << endl;
+        cout << "Total de Horas: " << SomaCarga() << endl;
+        cout << "===========================" << endl;
+    }
+};
+
+
 int main() {
 
     setlocale(LC_ALL, "Portuguese");
 
     DisciplinaAluno aluno;
+    DisciplinaProfessor professor;
 
     int opcao;
     do {
@@ -138,7 +218,10 @@ int main() {
             break;
 
         case 2:
-            cout << "Funcionalidade de cadastro de professor ainda não implementada." << endl;
+            professor.CadastrarInfo();
+            professor.InserirCarga();
+            cout << "\nInformações do Professor e da Disciplina:\n";
+            professor.ExibirInfo();
             break;
 
         case 3:
