@@ -190,6 +190,37 @@ public:
     }
 };
 
+class Administrativo : public Pessoa {
+protected:
+    string Setor;
+    string Periodo;
+
+public:
+    // Método para cadastrar as informações do aluno
+    void CadastrarInfo() {
+        
+        // Chama o método da classe base para preencher ID, Nome, CPF
+        Pessoa::CadastrarInfo();
+        cout << "===========================" << endl;
+        // Cadastra dados específicos de Aluno
+        cout << "Digite o setor do Administrativo: ";
+        cin.ignore();  // Limpar o buffer
+        getline(cin, Setor);
+
+        cout << "Digite o periodo que trabalha: ";
+        cin.ignore();  // Limpar o buffer
+        getline(cin, Periodo);
+
+    }
+
+    void ExibirInfo() const override {
+        Pessoa::ExibirInfo();  // Chama o método da classe Aluno para exibir dados de Aluno
+        cout << "Setor do ADM: "<< Setor <<endl; 
+        cout << "Periodo de trabalho do ADM: "<< Periodo <<endl;
+        cout << "===========================" << endl;
+    }
+};
+
 
 int main() {
 
@@ -197,6 +228,7 @@ int main() {
 
     DisciplinaAluno aluno;
     DisciplinaProfessor professor;
+    Administrativo adm;
 
     int opcao;
     do {
@@ -225,7 +257,9 @@ int main() {
             break;
 
         case 3:
-            cout << "Funcionalidade de cadastro de técnico ainda não implementada." << endl;
+            adm.CadastrarInfo();
+            cout << "\nInformações do Tecnico ADM:\n";
+            adm.ExibirInfo();
             break;
 
         case 0:
