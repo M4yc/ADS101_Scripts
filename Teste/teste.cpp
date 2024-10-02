@@ -45,7 +45,7 @@ class Aluno : public Pessoa {
         
         void inserirnotas (){
             cout << "digite o nome da disciplina: ";
-            getline (cin, disciplina);
+            getline(cin, nomedisciplina);
             cout << "digite a nota 1:" ;
             cin >> nota1;
             cout << "digite a nota 2:" ;
@@ -55,10 +55,10 @@ class Aluno : public Pessoa {
             
         }
         
-        void media () const {
+        float media () const {
             return ( nota1 + nota2 + nota3 )/3;
         }
-        void status () const {
+        string status () const {
             return (media() >= 60)? "aprovado": "reprovado";
         }
         
@@ -66,7 +66,7 @@ class Aluno : public Pessoa {
             Pessoa::exibirdados();
             cout << " curso " << curso << endl; 
             cout << "mensalidade" << mensalidade << endl;
-            cout << "disciplina" << disciplina << endl;
+            cout << "disciplina" << nomedisciplina << endl;
             cout << "nota1 " << nota1 << endl; 
             cout << "nota2 " << nota2 << endl;
             cout << "nota3 " << nota3 << endl;
@@ -109,7 +109,7 @@ class Professor : public Pessoa {
             cin >> cargahorariadisciplina03;
         }
         
-        void soma () const {
+        int soma () const {
             return ( cargahorariadisciplina01 + cargahorariadisciplina02 + cargahorariadisciplina03 );
         }
          
@@ -130,14 +130,13 @@ class Tecnico : public Pessoa {
     private: 
         string setor;
         string periodo;
-        
        
     public:
         void cadastrartecnico (){
-            cadastrarpessoa ();
+            cadastrarpessoa();
             cout << "digite o setor:";
             getline (cin, setor);
-            string << "digite o periodo: ";
+            cout << "digite o periodo: ";
             cin >> periodo;
             
         }
@@ -149,3 +148,9 @@ class Tecnico : public Pessoa {
         }
 
 };
+
+int main(){
+    
+
+
+}
