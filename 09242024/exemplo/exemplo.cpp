@@ -218,13 +218,14 @@ int main() {
             }
             default:
                 cout << "Opção inválida! Tente novamente.\n";
+                continue;
                 break;
         }
 
         cout << "\nDeseja realizar outro cadastro? (1 - Sim / 0 - Não): ";
         cin >> opcao;
         cin.ignore();  // Limpa o buffer do teclado
-    } while (opcao == 1);
-
+    } while (opcao != 0);
+    
     return 0;
 }
