@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 class Animal {
 public:
     string nome;
@@ -17,7 +16,6 @@ public:
     }
 };
 
-
 class Cachorro : public Animal {
 public:
     string raca;
@@ -30,12 +28,10 @@ public:
     void latir() {
         cout << nome << " está latindo!" << endl;
     }
-
     
     void dormir() {
         cout << nome << " um cachorro da raça " << raca << " está dormindo." << endl;
     }
-
     
     void mostrarIdade() {
         cout << nome << " tem " << idade << " anos." << endl;
