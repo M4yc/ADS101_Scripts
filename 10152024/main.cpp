@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <locale>
 
 #define MAX 100
 
@@ -44,24 +43,17 @@ public:
         }
     }
 
-    int getTopo() {
-        if (vazia()) {
-            cout << "Erro: Pilha vazia!" << std::endl;
-            return -1;
-        } else {
-            return itens[topo];
+    int getProximoValor() {
+        if (topo > 0) {
+            return itens[topo - 1];
         }
-    }
-
-    int getPosicaoTopo() {
-        return topo + 1;  // Retorna a posição do topo, adicionando 1 para ser 1-indexado
+        return 0;  // Retorna 0 se não houver mais valores
     }
 };
 
 int main() {
     Pilha minhaPilha;
-    int quantidade, valor;
-    int soma = 0;  // Variável para armazenar a soma dos valores
+    int quantidade, valor, somaTotal = 0, somaValorAtualMaisProximo = 0;
 
     cout << "Quantos valores você deseja inserir na pilha? ";
     cin >> quantidade;
@@ -72,18 +64,20 @@ int main() {
         minhaPilha.push(valor);
     }
 
-    cout << "\nElementos removidos da pilha em ordem (LIFO):" << std::endl;
+    cout << "\nElementos removidos da pilha e somados ao próximo valor (LIFO):" << std::endl;
 
     while (!minhaPilha.vazia()) {
-        int valorRemovido = minhaPilha.pop();
-        int posicaoRemovida = minhaPilha.getPosicaoTopo() + 1; // Posição antes de remover
-        soma += valorRemovido;  // Soma os valores removidos
+        int valorAtual = minhaPilha.pop();
+        int valorProximo = minhaPilha.getProximoValor();  // Obtém o próximo valor sem removê-lo
 
-        cout << "O número " << valorRemovido << " estava na posição " << posicaoRemovida << std::endl;
+        somaTotal += valorAtual;  // Soma de todos os valores removidos
+        somaValorAtualMaisProximo = valorAtual + valorProximo;  // Soma do valor atual com o próximo
+
+        cout << "O número " << valorAtual << " somado ao próximo (" << valorProximo << ") é: " << somaValorAtualMaisProximo << std::endl;
     }
 
-    // Exibe a soma final
-    cout << "\nA soma dos valores removidos é: " << soma << std::endl;
+    // Exibe a soma total de todos os valores removidos
+    cout << "\nA soma total de todos os valores removidos é: " << somaTotal << endl;
 
     return 0;
 }
