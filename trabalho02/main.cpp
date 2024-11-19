@@ -105,13 +105,14 @@ public:
     void menu() {
         int opcao;
         do {
-            cout << "\nMenu:\n";
-            cout << "1. Cadastro de DVD\n";
-            cout << "2. Cadastro de CD\n";
-            cout << "3. Cadastro de LP\n";
-            cout << "4. Cadastro de Livro\n";
-            cout << "5. Exibição dos itens cadastrados\n";
-            cout << "6. Sair do sistema\n";
+            cout << "========== Menu =============\n";
+            cout << "[1] Cadastro de DVD\n";
+            cout << "[2] Cadastro de CD\n";
+            cout << "[3] Cadastro de LP\n";
+            cout << "[4] Cadastro de Livro\n";
+            cout << "[5] Exibição dos itens cadastrados\n";
+            cout << "[6] Sair do sistema\n";
+            cout << "=========================\n";
             cout << "Escolha uma opção: ";
             cin >> opcao;
 
